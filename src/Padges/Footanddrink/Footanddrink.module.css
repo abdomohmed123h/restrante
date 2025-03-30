@@ -1,0 +1,53 @@
+body {
+     /* منع تمرير الصفحة */
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+#catgory-container {
+    flex-grow: 1; /* يملأ المساحة المتبقية */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-y: auto; /* يسمح بتمرير المحتوى عند الحاجة */
+}
+
+#catgory {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+}
+
+#catgory a {
+    height: 30vh;
+    width: 30%;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: black;
+    transition: background 0.3s;
+    border-radius: 10px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+#catgory a:hover {
+    background: var(--mainyellow);
+}
+
+#catgory a img {
+    width: 80%; /* جعل الصورة تتناسب مع العنصر */
+    height: auto; /* الحفاظ على الأبعاد */
+    object-fit: contain; /* ضمان عرض الصورة بدون قص */
+    border-radius: 10px;
+    transition: transform 0.3s;
+}
+
+#catgory a img:hover {
+    transform: scale(1.05);
+}

@@ -1,0 +1,73 @@
+#sidebar {
+    padding: 20px;
+    width: 250px;
+    height: 100vh; 
+    background-color: var(--mainwhite);
+    overflow-y: auto; 
+    overflow-x: hidden;
+    scrollbar-width: thin;
+    scrollbar-color: var(--mainyellow) var(--mainwhite);
+
+    #icon {
+        font-size: 25px;
+        font-weight: 700;
+    }
+
+    #logo {
+        font-size: 30px;
+        font-weight: 700;
+    }
+
+    .link {
+        transition: ease-in-out 0.3s;
+        cursor: pointer;
+        text-decoration: none;
+
+        icon {
+            font-size: 20px;
+            margin-right: 10px;
+        }
+
+        &:hover {
+            background-color: var(--mainyellow);
+            border-radius: 1rem;
+            padding: 1rem;
+            transition: ease-in-out 0.3s;
+        }
+    }
+
+    #activelink {
+        background-color: var(--mainyellow);
+        border-radius: 1rem;
+        padding: 1rem;
+    }
+
+    /* Custom scrollbar for WebKit browsers */
+    &::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: var(--mainwhite);
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: var(--mainyellow);
+        border-radius: 4px;
+    }
+
+    /* Hide scrolling on large screens */
+    @media screen and (min-width: 1024px) {
+        overflow-y: clip !important; 
+        height: auto !important; 
+        max-height: 100vh; 
+
+        &::-webkit-scrollbar {
+            width: 0px;
+            display: none !important; 
+        }
+
+        & {
+            scrollbar-width: none;
+    }
+}}
