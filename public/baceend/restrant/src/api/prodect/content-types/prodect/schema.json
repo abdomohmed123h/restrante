@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "prodects",
+  "info": {
+    "singularName": "prodect",
+    "pluralName": "prodects",
+    "displayName": "prodect"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "prodect_name": {
+      "type": "string"
+    },
+    "price": {
+      "type": "string"
+    },
+    "imgUrl": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
+    },
+    "categroyo": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::categroyo.categroyo",
+      "inversedBy": "prodects"
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "kind": "collectionType",
+  "collectionName": "categroyos",
+  "info": {
+    "singularName": "categroyo",
+    "pluralName": "categroyos",
+    "displayName": "Categroyo",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "link": {
+      "type": "string"
+    },
+    "imgUrl": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "prodects": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::prodect.prodect",
+      "mappedBy": "categroyo"
+    }
+  }
+}

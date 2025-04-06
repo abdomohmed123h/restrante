@@ -1,0 +1,19 @@
+.catgroyprodect{
+    stroke-dasharray: 5px;
+    stroke-dashoffset: 0px;
+    animation: dash 2s linear infinite;
+    animation-direction: alternate;
+    animation-fill-mode: forwards;
+    animation-delay: 0.5s;
+    animation-play-state: running;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-name: dash;
+    animation-duration: 2s;
+   overflow-y: scroll;
+  
+
+}
+/* .catgroyprodect:hover{
+    background-color:var(.catgroyprodect);
+} */

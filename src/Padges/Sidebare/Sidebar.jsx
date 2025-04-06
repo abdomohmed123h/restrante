@@ -20,7 +20,7 @@ export default function Sidebar() {
 
   return (
     <div
-      className=" p-3 d-flex flex-column  "
+      className=" p-3 d-flex flex-column flex-grow-0  "
       id={styles.sidebar}
     >
       {/* Logo Section */}

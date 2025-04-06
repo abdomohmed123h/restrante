@@ -1,12 +1,13 @@
 #sidebar {
-    padding: 20px;
-    width: 250px;
+    padding: 10px;
+    width: 250px !important;
     height: 100vh; 
     background-color: var(--mainwhite);
     overflow-y: auto; 
     overflow-x: hidden;
     scrollbar-width: thin;
     scrollbar-color: var(--mainyellow) var(--mainwhite);
+    color: blue;
 
     #icon {
         font-size: 25px;
