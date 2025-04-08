@@ -32,7 +32,8 @@ export default function Footanddrink() {
   }, []);
 
   return (
-    <div className="flex-grow-0">
+    <div className="flex-grow-1">
+      
       <div className="d-flex justify-content-between p-3">
         <h1 className="fs-4 fw-bold text-secondary mb-0">
           <Link to={"../"} className="nav-underline">

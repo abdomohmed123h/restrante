@@ -11,6 +11,8 @@
     animation-name: dash;
     animation-duration: 2s;
    overflow-y: scroll;
+   scrollbar-width: thin;
+    scrollbar-color: var(--mainyellow) var(--mainwhite);
   
 
 }

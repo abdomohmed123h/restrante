@@ -5,6 +5,9 @@ import { useParams, useNavigate, Link, useLocation } from "react-router-dom";
 import ProductCard from "../ProductCard/ProductCard";
 import styels from "./Catgroyprodect.module.css";
 import axios from "axios";
+import { BsCart3 } from "react-icons/bs";
+import Sidcar from "../Sidcart/Sidcar";
+import { usecart } from "../Sidcart/cartStore";
 
 export default function Catgroyprodect() {
   const { catname } = useParams(); // Extract category name
@@ -16,7 +19,15 @@ export default function Catgroyprodect() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:1337/api/categroyos/${documentId}?populate=*`)
+      .get(`http://localhost:1337/api/categroyos/${documentId}`, {
+        params: {
+          populate: {
+            prodects: {
+              populate: "*"
+            }
+          }
+        }
+      })
       .then((res) => {
         console.log(res.data.data.prodects);
         setProductData(res.data.data.prodects); // Store the response data
@@ -37,10 +48,13 @@ export default function Catgroyprodect() {
       navigate("/error"); // Correct syntax for navigation
     }
   }, [catname, navigate]); // Dependency array
+  const { cattindex, setCattindex, cartItems } = usecart();
 
   return (
     <>
       <div className={`flex-grow-1 ${styels.catgroyprodect}`}>
+        {cattindex && <Sidcar />}
+
         <div className="d-flex justify-content-between p-3 ">
           <h1 className="fs-4 fw-bold text-secondary mb-0">
             <Link to={"../"} className="nav-underline">
@@ -50,17 +64,18 @@ export default function Catgroyprodect() {
             <h1> 1565225665655 {documentId}</h1>
           </h1>
 
-          <div
-            className="d-flex align-items-center position-relative bg-light rounded-pill shadow-sm px-3"
-            style={{ width: "250px", height: "40px" }}
-          >
-            <FaSearch className="text-secondary" />
-            <input
-              type="search"
-              className="form-control border-0 bg-light rounded-pill ms-2"
-              placeholder="Search..."
-              style={{ flex: 1, outline: "none", boxShadow: "none" }}
-            />
+          <div>
+            <div className="position-relative">
+              <BsCart3
+                className="fs-1"
+                onClick={() => {
+                  setCattindex(true);
+                }}
+              />
+              <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                {cartItems.reduce((acc, product) => acc + product.quantity, 0)}
+              </span>
+            </div>
           </div>
         </div>
         <h1 className="fs-1 p-3">{catname}</h1>
@@ -73,6 +88,12 @@ export default function Catgroyprodect() {
                 key={index}
                 name={product.prodect_name}
                 price={product.price}
+                image={
+                  product.imgUrl?.[0]?.url
+                    ? "http://localhost:1337" + product.imgUrl[0].url
+                    : "/placeholder-image.jpg"
+                }
+                prodect={product}
               />
             ))
           )}
